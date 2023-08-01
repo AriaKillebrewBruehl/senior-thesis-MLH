@@ -5,7 +5,7 @@
 cmake_minimum_required(VERSION "3.17")
 
 # name of this example project
-project(edge-detection)
+project(senior-thesis)
 
 # set OpenCV_DIR variable equal to the path to the cmake
 # files within the previously installed opencv program
@@ -24,7 +24,7 @@ find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 # specify the executable target to be built
-add_executable(caboodle caboodle.cpp 
+add_executable(render render.cpp 
     ../boiler-plate/invert.cpp ../boiler-plate/read-save.cpp ../boiler-plate/type2str.cpp ../boiler-plate/CIEprocess.cpp
     ../distance-map/distance-map2.cpp ../distance-map/fullMap.cpp  ../distance-map/sampled-transform-seeds.cpp ../distance-map/offset-map.cpp
     ../dots/adjust-cells.cpp ../dots/dots.cpp ../dots/place-dots.cpp ../dots/place-seeds.cpp
@@ -33,4 +33,4 @@ add_executable(caboodle caboodle.cpp
     )
 
 # tell it to link the executable target against OpenCV
-target_link_libraries(caboodle ${OpenCV_LIBS})
+target_link_libraries(render ${OpenCV_LIBS})
