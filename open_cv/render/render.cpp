@@ -1,4 +1,4 @@
-#include "caboodle.hpp"
+#include "render.hpp"
 cv::Mat caboodle(std::string path, cv::Mat img, bool saving) {
     cv::Mat image;
     image = read(path, img);
