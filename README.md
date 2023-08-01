@@ -34,8 +34,16 @@ This program can be run on any `.png` and it is preferred that the image is larg
 All code for this project was written exclusively by me. There are six basic steps to this process:
 
 1. Detect edges in input image.
+   - All code for this step is located in the `edge-detection` directory.
 2. Detect isophotes in input image.
+   - All code for this step is located in the `isophotes` directory.
 3. Generate a distance map (tonal) and offset map (with lines) for input image to indicate a pixel's distance from the nearest edge / isophote.
+   - All code for this step is located in the `distance-map` directory.
 4. Generate initial dot placement.
 5. Adjust dot placement to align with edges and isophotes.
 6. Size dots based on tone in input image.
+   - All code for steps 4-6 is located in the `dots` directory.
+
+![Process Overview](./images/process-overview.png)
+
+The `boiler-plate` directory contains boiler plate code needed at several steps for reading / saving images, inverting images, etc.
