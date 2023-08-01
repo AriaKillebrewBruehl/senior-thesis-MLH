@@ -1,22 +1,20 @@
 # senior-thesis
 
-This is the repository for all my senior thesis work :cowboy_hat_face:
-
-I have an unofficial [thesis-blog](https://github.com/AriaKillebrewBruehl/senior-thesis/blob/main/thesis-blog.md) that houses brain-dump regarding my thoughts and feelings about the process!
+This is the repository for all my senior thesis work.
 
 ## Thesis Motivation
 
 The goal of my thesis is to write a program that can render photographs as stipples drawings like the [hedcuts in the Wall Street Journal](https://www.wsj.com/articles/whats-in-a-hedcut-depends-how-its-made-11576537243). These images are small, typically only three by five inches, but creating just one portrait can take an illustrator up to five hours to complete. In 2019 the WSJ had a team of only five artists who would spend all day generating these images. Although nothing can ever replace the look of a hand-drawn image, digital rendering can significantly speed up the process and make this art form more accessible.
 
-I will render these images without the use of AI or ML, in part because I have no AI or ML experience and in part because this will avoid the question of [the ethics of AI generated art](https://jamiearpinricci.medium.com/the-ethics-of-ai-generated-art-57fb04b71646).
-
 ## Process
 
 The main paper I will be following for this work is the 2010 Kim et al. paper [Automated Hedcut Illustration Using Isophotes](https://link.springer.com/chapter/10.1007/978-3-642-13544-6_17). I have diverged from this paper in a few ways, most notibly in the edge detection process and the distance transform calculation for which I use the 2009 Felzenszwalb and Huttenlocher paper [Distance Transforms of Sampled Functons](https://cs.brown.edu/people/pfelzens/papers/dt-final.pdf).
 
-## Version 1
+## MLH Fellowship Code Example Version
 
-This version of the `caboodle` program (called `caboodle` because it is the whole kit and caboodle) is fully automated. The only user input is the input image. All parameters to edge detection, isophote detection, offset map generation, etc. are hardcoded using the parameters specified in the papers I followed.
+This version of my command line interface is the most basic version of the program. I completed this version around February of 2023 and in the following two and a half months made several additions to the CLI to improve renderings. I am showcasing this version for the sake of simplicity. To see the most complete and final version switch to the `mouse-selection` branch.
+
+Thi version is fully automated. The only user input is the input image. All parameters to edge detection, isophote detection, offset map generation, etc. are hardcoded using the parameters specified in the papers I followed.
 
 To run the program:
 
@@ -31,6 +29,13 @@ The program will run and print feedback in the terminal. Please note that the do
 
 This program can be run on any `.png` and it is preferred that the image is large (large than `750 px x 750 px`). Final renderings look best if the background is removed. This can be easily done using Apple's copy subject tool. Additionally it helps if the subject is well lit, has neat hair, is face on, and if there is contrast in the image.
 
-## Other Branches
+## Code-Base Overview
 
-The other branches contain more robust versions of the program and take user input through a CLI.
+All code for this project was written exclusively by me. There are six basic steps to this process:
+
+1. Detect edges in input image.
+2. Detect isophotes in input image.
+3. Generate a distance map (tonal) and offset map (with lines) for input image to indicate a pixel's distance from the nearest edge / isophote.
+4. Generate initial dot placement.
+5. Adjust dot placement to align with edges and isophotes.
+6. Size dots based on tone in input image.
