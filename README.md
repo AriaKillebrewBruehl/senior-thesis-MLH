@@ -27,7 +27,18 @@ To run this version:
 
 ## Code-Base Overview
 
-This is a large code base with several components. All code in this repository was written exclusively by me. The main driver of the command line interface is contained in the `open_cv/render` folder. The `open_cv/render/render.cpp` file.
+This is a large code base with several components. All code in this repository was written exclusively by me. The main driver of the command line interface is contained in the `open_cv/render` folder. The `open_cv/render/render.cpp` file processes user inputs and moves through the steps for rendering. The rendering steps are the same as in the `main` branch with the addition of a mouse selection step.
+
+Most changes to the code in this version happened in the `dots` directory. For example in `place-seeds.cpp` the areas the user has selected to have greater detail must have greater dot density, as reflected in this code:
+
+```C++
+if (details.at<uchar>(i, j) == 255) {
+     // detailed sections are while
+     s /= 3;
+}
+```
+
+Since `1/s*s` is the probability that a dot will be placed at a given pixel decreasing `s` increases the dot density in that region.
 
 ### CLI Video
 
